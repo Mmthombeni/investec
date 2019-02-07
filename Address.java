@@ -17,4 +17,28 @@ public class Address {
         this._country = country;
         this._postalCode = postalCode;
     }
+
+    public String getAddressType() {
+        return this._addressType;
+    }
+
+    public String getAddressLine() {
+        return this._addressLine;
+    }
+
+    public String getProvince() {
+        return this._province;
+    }
+
+    public String getCity() {
+        return this._city;
+    }
+
+    public String getCountry() {
+        return this._country;
+    }
+
+    public long getPostalCode() {
+        return this._postalCode;
+    }
 }
