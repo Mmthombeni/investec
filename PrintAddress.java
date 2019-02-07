@@ -11,6 +11,7 @@ public class PrintAddress {
 
     public String prettyPrintAddress(Address address) {
 
+        return "lebo";
     }
     public static void main(String[] args) throws Exception {
         try {
@@ -20,7 +21,7 @@ public class PrintAddress {
             //typecast obj to JSONObject
             JSONObject jObj = (JSONObject) obj;
 
-            
+
 
         } catch (Exception e) {
             //TODO: handle exception
