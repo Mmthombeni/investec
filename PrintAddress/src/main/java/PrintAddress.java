@@ -23,15 +23,34 @@ public class PrintAddress {
             //typecasting obj to JSONArray
             JSONArray jArrary = (JSONArray) obj;
 
-            System.out.println(jArrary.get(0));
+            //System.out.println(jArrary.get(0));
 
             Iterator itr2 = jArrary.iterator();
 
+            // new Array<Address>
             while (itr2.hasNext()) {
                Iterator<Map.Entry> itr1 = ((Map) itr2.next()).entrySet().iterator();
+
+               // new Address()
                while (itr1.hasNext()) {
                    Map.Entry pair = itr1.next();
-                   //System.out.println(pair.getKey() + " : " + pair.getValue());
+
+                   if (pair.getKey().toString().equalsIgnoreCase("type") || pair.getKey().toString().equalsIgnoreCase("addressLineDetail") || pair.getKey().toString().equalsIgnoreCase("provinceOrState")
+                           || pair.getKey().toString().equalsIgnoreCase("cityOrTown") || pair.getKey().toString().equalsIgnoreCase("country")){
+                       System.out.println("I am TYPE and an OBJ!");
+                       try{
+                           JSONObject ob  = (JSONObject) pair.getValue();
+                           ob.get("name");
+                           //ob.get("line");
+
+                           String lebo = String.format("1. I alo hjave name.... %-10.10s - %-10.10s", ob.get("name").toString(), ob.get("name").toString());
+                           System.out.println(lebo);
+                       }catch (Exception exc){}
+                   } else {
+                       System.out.println(pair.getKey() + " : " + pair.getValue());
+                   }
+
+                  //System.out.println(pair.getKey() + " : " + pair.getValue());
                }
             }
 
