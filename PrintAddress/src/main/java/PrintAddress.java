@@ -20,9 +20,12 @@ public class PrintAddress {
     }
 
     public void prettyPrintAll(List<Address> addresses) {
-        //System.out.println(addresses.size() + "<< size");
-        for (Address addrss: addresses) {
-            System.out.println(prettyPrintAddress(addrss));
+        int i = 1;
+        System.out.println(String.format("   # %-18.18s: %-18.18s - %-18.18s - %-16.16s - %-8.8s - %-18.18s", "TYPE", "ADDRESS DETAILS", "CITY", "PROVINCE", "CODE", "COUNTRY"));
+        for (Address address: addresses) {
+            System.out.println(String.format("%4d %s", i, prettyPrintAddress(address)));
+            validateAddress(address);
+            i++;
         }
     }
 
@@ -52,9 +55,30 @@ public class PrintAddress {
         System.out.println("address type not valid");
     }
 
-    public String validateAddress(List<Address> addresses) {
-
-        return "not valid";
+    public void validateAddress(Address address) {
+        if (address.getPostalCode().length() != 4) {  //change to int type
+            System.out.println("postal code incorrect");
+        }
+        else{
+            try{
+                Integer.parseInt(address.getPostalCode());
+            }catch (Exception exc){
+                System.out.println("postal code incorrect NOT NUMBER");
+            }
+        }
+        if (address.getAddressLine() == null || address.getAddressLine() == "") {
+            System.out.println("no address line details");
+        }
+        if (address.getCountry() != null || address.getCountry() != "") {
+            if (address.getCountry().equalsIgnoreCase("South Africa")) {
+                if (address.getProvince() == null || address.getProvince() == "") {
+                    System.out.println("province required");
+                }
+            }
+        }
+        else {
+            System.out.println("Country required");
+        }
     }
 
     public static void main(String[] args) throws Exception {
