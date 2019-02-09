@@ -1,18 +1,27 @@
+/***/
 public class Address {
-    private String _addressType;
-    private String _addressLine;
-    private String _province;
+    private int    _id;
+
     private String _city;
     private String _country;
-    private long   _postalCode;
+    private String _province;
+    private String _postalCode;
+    private String _addressType;
+    private String _addressLine;
+    private String _lastUpdate;
 
-    public  Address(String addressType, String addressLine, String province, String city, String country, long postalCode) {
-        this._addressType = addressType;
-        this._addressLine = addressLine;
-        this._province = province;
+    //private long   _postalCode;
+    //last update
+
+    public Address(int id, String addressType, String addressLine, String province, String city, String country, String postalCode, String lastUpdate) {
+        this._id = id;
         this._city = city;
         this._country = country;
+        this._province = province;
         this._postalCode = postalCode;
+        this._lastUpdate = lastUpdate;
+        this._addressType = addressType;
+        this._addressLine = addressLine;
     }
 
     public String getAddressType() {
@@ -35,7 +44,11 @@ public class Address {
         return this._country;
     }
 
-    public long getPostalCode() {
+    public String getPostalCode() {
         return this._postalCode;
     }
+
+//    public Address getAddressOfType() {
+//
+//    }
 }
