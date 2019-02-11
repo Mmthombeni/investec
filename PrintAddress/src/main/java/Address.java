@@ -1,4 +1,6 @@
-/***/
+/**
+ * Stores all the information for an address, when object created after reading the json file
+ */
 public class Address {
     private int    _id;
 
@@ -9,9 +11,6 @@ public class Address {
     private String _addressType;
     private String _addressLine;
     private String _lastUpdate;
-
-    //private long   _postalCode;
-    //last update
 
     public Address(int id, String addressType, String addressLine, String province, String city, String country, String postalCode, String lastUpdate) {
         this._id = id;
@@ -48,7 +47,4 @@ public class Address {
         return this._postalCode;
     }
 
-//    public Address getAddressOfType() {
-//
-//    }
 }

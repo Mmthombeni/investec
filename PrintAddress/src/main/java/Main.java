@@ -1,6 +1,6 @@
 /**
- * Reads the json file and iterates through it's objects to retrive and the address information and stores it to the
- * address Class to use however
+ * Java program that reads addresses from a json file and then pretty Prints them according to ethier; all the listed
+ * addresses, types of addresses(postal, business, physical) and also validates if the address given is valied
  * */
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -15,6 +15,12 @@ import java.util.Map;
 public class Main {
     private static List<Address> addresses = new ArrayList<Address>();
 
+    /**
+     * 
+     * Reads the addresses.json file, iterates through it's objects to retrive the addresses then creates a new Address
+     * to be printed by the TYPE of address and without filter(all the addresses given)  
+     * @throws Exception if json file cannot be read
+     */
     public static void main(String[] args) throws Exception {
         PrintAddress print = new PrintAddress();
         int id;
